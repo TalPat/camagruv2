@@ -1,13 +1,12 @@
 <?php
 
-	$dbname = 'camagru_db';
-	$servername = 'localhost';
-	$username = 'root';
-	$passwrd = 'password';
-
 	function ft_connect_database() {
+		$dbname = 'camagru_db';
+		$servername = 'localhost';
+		$dbusername = 'root';
+		$dbpasswrd = 'password';
 		try {
-			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpasswrd);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			echo "Connected successfully";
 			return ($conn);
@@ -18,10 +17,14 @@
 	}
 
 	function ft_create_database() {
+		$dbname = 'camagru_db';
+		$servername = 'localhost';
+		$dbusername = 'root';
+		$dbpasswrd = 'password';
 		try {
-			$conn = new PDO("mysql:host=$servername", $dbusername, $dbpassword);
+			$conn = new PDO("mysql:host=$servername", $dbusername, $dbpasswrd);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "CREATE DATABASE IF NOT EXISTS $this->dbname";
+			$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 			$conn->exec($sql);
 			echo "Database successfully created<br>";
 		}
@@ -66,5 +69,4 @@
 		$conn = null;
 	}
 	
-
 ?>

@@ -7,18 +7,18 @@
 
 <html lang="en">
 
-<?php $ft_printhead("Camagru"); ?>
+<?php ft_printhead("Camagru"); ?>
 
 <body>
 	<div id="mainContent">
 
-		<?php $ft_printheader(); ?>
+		<?php ft_printheader(); ?>
 
 		<div class="container">
 			<h2>Camagru</h2>
 		</div>
 
-		<?php $ft_printfooter(); ?>
+		<?php ft_printfooter(); ?>
 
 	</div>
 </body>

@@ -1,13 +1,15 @@
 <?php
 
+	require_once('./config/database.php');
+
 	$servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "password";
 	$dbname = "camaguru";
 	
-	function ft_printheader()
+	function	ft_printheader()
 	{
-			if ($ft_signedincheck())
+			if (ft_signedincheck())
 			$logstat = '<p>Logged in as '.$_SESSION[user].'<br><a href="user.php">My Profile</a> <a href="logout.php">Logout</a></p>';
 		else
 			$logstat = '<a href="login.php">Login</a></p>';
@@ -29,7 +31,7 @@
 		);
 	}
 
-	function ft_printfooter()
+	function	ft_printfooter()
 	{
 		print(
 			'<div class="footer">
@@ -37,7 +39,7 @@
 		);
 	}
 
-	function ft_printhead($title)
+	function	ft_printhead($title)
 	{
 		print(
 			'<head>
@@ -48,7 +50,7 @@
 		);
 	}
 
-	function ft_signedincheck()
+	function	ft_signedincheck()
 	{
 		if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 			return (TRUE);
@@ -56,6 +58,20 @@
 		else {
 			return (FALSE);
 		}
+	}
+
+	function	ft_run_sql($sql) {
+		$conn = ft_connect_database();
+		try {
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return($stmt->fetchAll());
+		}
+		catch(PDOException $e) {
+			return("Error");
+		}
+		$conn = null;
 	}
 
 ?>
