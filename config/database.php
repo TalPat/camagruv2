@@ -65,6 +65,18 @@
 		catch(PDOException $e) {
 			echo $sql."<br>".$e->getMessage();
 		}
+		try {
+			$sql = "CREATE TABLE comments (
+				id int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+				comment VARCHAR(2047) NOT NULL,
+				authorid int(30) NOT NULL,
+				imageid int(30)
+			)";
+			$conn->exec($sql);
+		}
+		catch(PDOException $e) {
+			echo $sql."<br>".$e->getMessage();
+		}
 		$conn = null;
 	}
 	

@@ -22,18 +22,19 @@
 
 	foreach ($entries as $entry) {
 		if ($counter % 2 == 0)
-			$pics .= "<div>";
+			$pics .= "<div  style='display: inline-block'>";
 
 		$pics .=	"<div class='piccontainer one-half column' style='border: 1px solid black; margin-bottom: 5px;'>".
-					"	<img src='".$entry['filePath']."' style='width: 100%;'>".
+					"	<a href='image.php?imageid=".$entry['id']."'><img src='".$entry['filePath']."' style='width: 100%;'></a>".
 					"	Points: ".$entry['votes'].
 					"</div>";
 		
-		if ($counter % 2 == 0)
+		if ($counter % 2 != 0)
 			$pics .= "</div>";
 		
 		$counter++;
 	}
+	
 	$pics .= "</div>";
 
 	if ($page != 1) {
