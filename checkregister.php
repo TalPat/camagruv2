@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	include_once("functions.php");
+	require_once("functions.php");
 
 	$username = $_POST['username'];
 	$email = $_POST['email'];
@@ -13,8 +13,8 @@
 		$entries = ft_run_sql("SELECT * FROM USERS WHERE username = '".$username."' OR email = '".$email."'");
 		if ($entries != "Error" && count($entries) < 1) {
 			$refcode = hash("whirlpool",rand(0, 999999));
-			ft_run_sql("INSERT INTO Users (username, email, passwd, firstname, lastname, confirmed, refcode) VALUES ('$username', '$email', '".hash("whirlpool",$passwrd)."', '$firstname', '$lastname', '0', '$refcode')");
-			if (mail($_POST['email'], "Do not reply", "Thank you for registering with Camagru. Click on the link to activate your account <br>http://localhost:8080/camagru/validate.php?id=$_POST[username]&code=".$refcode.", From: tpatter@student.wethinkcode.co.za"))
+			ft_run_sql_noreturn("INSERT INTO Users (username, email, passwd, firstname, lastname, confirmed, refcode) VALUES ('$username', '$email', '".hash("whirlpool",$passwrd)."', '$firstname', '$lastname', '0', '$refcode')");
+			if (mail($_POST['email'], "Do not reply", "Thank you for registering with Camagru. Click on the link to activate your account <br>http://localhost:8080/validate.php?id=$_POST[username]&code=".$refcode.", From: tpatter@student.wethinkcode.co.za"))
 					$out = "A verification email has been sent, click the link in the email to validate your account.";
 			else
 				$out = "Failed to send verification mail";

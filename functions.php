@@ -10,7 +10,7 @@
 	function	ft_printheader()
 	{
 			if (ft_signedincheck())
-			$logstat = '<p>Logged in as '.$_SESSION[user].'<br><a href="user.php">My Profile</a> <a href="logout.php">Logout</a></p>';
+			$logstat = '<p>Logged in as '.$_SESSION['user'].'<br><a href="user.php">My Profile</a> <a href="logout.php">Logout</a></p>';
 		else
 			$logstat = '<a href="login.php">Login</a></p>';
 			'</p> <a href="logout.php">Logout</a>';
@@ -69,9 +69,28 @@
 			return($stmt->fetchAll());
 		}
 		catch(PDOException $e) {
+			echo $e;
 			return("Error");
 		}
 		$conn = null;
+	}
+
+	function	ft_run_sql_noreturn($sql) {
+		$conn = ft_connect_database();
+		try {
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+		}
+		catch(PDOException $e) {
+			echo $e;
+			return("Error");
+		}
+		$conn = null;
+	}
+
+	function	ft_checklogin() {
+		if (!isset($_SESSION[user]))
+			header("location: index.php");
 	}
 
 ?>

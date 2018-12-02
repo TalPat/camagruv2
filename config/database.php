@@ -8,7 +8,6 @@
 		try {
 			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpasswrd);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			echo "Connected successfully";
 			return ($conn);
 		}
 		catch(PDOException $e) {
@@ -26,7 +25,6 @@
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 			$conn->exec($sql);
-			echo "Database successfully created<br>";
 		}
 		catch(PDOException $e) {
 			echo $sql."<br>".$e->getMessage();
@@ -48,7 +46,6 @@
 				confirmed int(1) NOT NULL
 			)";
 			$conn->exec($sql);
-			echo "Table 'Users' created successfully";
 		}
 		catch(PDOException $e) {
 			echo $sql."<br>".$e->getMessage();
@@ -57,11 +54,13 @@
 			$sql = "CREATE TABLE Images (
 				id int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				imagename VARCHAR(30) NOT NULL,
+				filePath VARCHAR(255) NOT NULL,
+				sticker VARCHAR(30) NOT NULL,
+				merged TINYINT NOT NULL,
 				userid int(10) NOT NULL,
 				votes int(10) NOT NULL
 			)";
 			$conn->exec($sql);
-			echo "Table 'Images' created successfully";
 		}
 		catch(PDOException $e) {
 			echo $sql."<br>".$e->getMessage();
