@@ -37,7 +37,7 @@
 <body>
 	<div id="mainContent">
 
-		<?php ft_printheader(); ?>
+		<?php ft_printheader(); ?><div class="twelve columns">
 
 		<div class="container">
 			<h2>Camagru</h2>
@@ -47,7 +47,7 @@
 			?>
 		</div>
 
-		<?php ft_printfooter(); ?>
+		</div><?php ft_printfooter(); ?>
 
 	</div>
 </body>

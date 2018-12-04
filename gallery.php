@@ -1,7 +1,7 @@
 <?php
 
-	require_once("functions.php");
 	session_start();
+	require_once("functions.php");
 
 	if($_SERVER['REQUEST_METHOD'] == "GET")
 		$page = $_GET['page'];
@@ -55,7 +55,7 @@
 <body>
 	<div id="mainContent">
 
-		<?php ft_printheader(); ?>
+		<?php ft_printheader(); ?><div class="twelve columns">
 
 		<div class="container">
 			<h2>Camagru</h2>
@@ -65,7 +65,7 @@
 			?>
 		</div>
 
-		<?php ft_printfooter(); ?>
+		</div><?php ft_printfooter(); ?>
 
 	</div>
 </body>

@@ -15,17 +15,17 @@
 			$logstat = '<a href="login.php">Login</a></p>';
 			'</p> <a href="logout.php">Logout</a>';
 		print(
-				'<div class="header" style="height: 75px;">
+				'<div class="header twelve columns" style="">
 				<div>
-					<a href="index.php"><img src="../Img/logo.png" alt=""></a>
-					</div>
-				<div class="menu" style="float: left">
-					<a href="index.php">Home</a>
-					<a href="gallery.php">Gallery</a>
-					<a href="Users.php">Users</a>
+					<h1 style="float: left">Camagru</h1>
 				</div>
-				<div class="login" style="float :right; text-align: right;">
+				<div class="login" style="text-align: right;">
 					'.$logstat.'
+					<div class="menu">
+						<a href="index.php">Home</a>
+						<a href="gallery.php">Gallery</a>
+						<a href="Users.php">Users</a>
+					</div>
 				</div>
 			</div>'
 		);

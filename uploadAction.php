@@ -4,7 +4,7 @@
 	require_once("functions.php");
 	ft_checklogin();
 
-	$target_dir = "uploads/".$_SESSION['user']."/";
+	$target_dir = "uploads/".$_SESSION['id']."/";
 	if (!file_exists($target_dir)) {
 		mkdir($target_dir, 0777, true);
 	}
@@ -57,14 +57,14 @@
 <body>
 	<div id="mainContent">
 
-		<?php ft_printheader(); ?>
+		<?php ft_printheader(); ?><div class="twelve columns">
 
 		<div class="container">
 			<h2>Upload Image</h2>
 			<p><?php echo($out) ?></p>
 		</div>
 
-		<?php ft_printfooter(); ?>
+		</div><?php ft_printfooter(); ?>
 
 	</div>
 </body>

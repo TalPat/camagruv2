@@ -12,7 +12,7 @@
 <body>
 	<div id="mainContent">
 
-		<?php ft_printheader(); ?>
+		<?php ft_printheader(); ?><div class="twelve columns">
 
 		<div class="container">
 			<h2>Register</h2>
@@ -30,7 +30,7 @@
 			<p>Already have an account? Log in <a href="login.php">here</a>.</p>
 		</div>
 
-		<?php ft_printfooter(); ?>
+		</div><?php ft_printfooter(); ?>
 
 	</div>
 </body>
