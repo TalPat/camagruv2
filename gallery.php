@@ -21,12 +21,16 @@
 	$counter = 0;
 
 	foreach ($entries as $entry) {
+		$voters = $entry['voters'];
+		$voters = unserialize($voters);
 		if ($counter % 2 == 0)
 			$pics .= "<div  style='display: inline-block'>";
 
 		$pics .=	"<div class='piccontainer one-half column' style='border: 1px solid black; margin-bottom: 5px;'>".
 					"	<a href='image.php?imageid=".$entry['id']."'><img src='".$entry['filePath']."' style='width: 100%;'></a>";
-		if (isset($_SESSION['id']))
+		if (isset($_SESSION['id']) && in_array($_SESSION['id'], $voters))
+			$pics .= "<img src='assets/green.png' style='float: right' class='two columns'>";
+		else if (isset($_SESSION['id']))
 			$pics .= "<img src='assets/black.png' style='float: right' class='two columns' onclick='upvote(".$entry['id'].")'>";
 
 		$pics .=	"	Points: ".$entry['votes']."<br>".
@@ -73,4 +77,18 @@
 
 	</div>
 </body>
+<script>
+	function upvote(id) {
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				location.reload();
+			}
+		};
+		xhttp.open("POST", "upvoteimage.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("imageid=" + id + "&userid=<?php echo $_SESSION['id']?>");
+	}
+</script>
 </html>

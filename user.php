@@ -50,6 +50,12 @@
 	}
 	$nav .= "</div>";
 
+	$user = ft_run_sql("SELECT * FROM users WHERE id = ".$userid);
+	if ($user[0]['notify'] == '0')
+		$notify = "<p>Your notifications are off, turn them on <a href='notify.php'>here</a>.</p>";
+	else
+	$notify = "<p>Your notifications are on, turn them off <a href='notify.php'>here</a>.</p>";
+
 ?>
 
 <html lang="en">
@@ -65,6 +71,9 @@
 			<h2><?php print($_SESSION[user]) ?>'s Profile</h2>
 			<a href="photo.php">Take Photo</a><br>
 			<a href="upload.php">Upload a Picture</a>
+			<?php
+				print($notify);
+			?>
 			<h3>Your Pictures</h3>
 			<?php
 				print($pics);

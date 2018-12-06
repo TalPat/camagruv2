@@ -43,7 +43,8 @@
 				firstname VARCHAR(45) NOT NULL,
 				lastname VARCHAR(45) NOT NULL,
 				refcode varchar(1000) NOT NULL,
-				confirmed int(1) NOT NULL
+				confirmed int(1) NOT NULL,
+				notify int(1) NOT NULL
 			)";
 			$conn->exec($sql);
 		}
@@ -58,7 +59,8 @@
 				sticker VARCHAR(30) NOT NULL,
 				merged TINYINT NOT NULL,
 				userid int(10) NOT NULL,
-				votes int(10) NOT NULL
+				votes int(10) NOT NULL,
+				voters VARCHAR(4095) NOT NULL
 			)";
 			$conn->exec($sql);
 		}

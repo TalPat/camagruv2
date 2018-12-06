@@ -24,7 +24,6 @@
 					<div class="menu">
 						<a href="index.php">Home</a>
 						<a href="gallery.php">Gallery</a>
-						<a href="Users.php">Users</a>
 					</div>
 				</div>
 			</div>'

@@ -23,7 +23,7 @@
 
     merge('stickers/'.$sticker.'.png', $filename);
 
-    $sql = "INSERT INTO images (imagename, filePath, sticker, merged, userid, votes) VALUES ('$file', '$filename', '$sticker', '1', '$userid', '0');";
+    $sql = "INSERT INTO images (imagename, filePath, sticker, merged, userid, votes, voters) VALUES ('$file', '$filename', '$sticker', '1', '$userid', '0', '');";
 	ft_run_sql_noreturn($sql);
 
 ?>

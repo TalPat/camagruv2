@@ -12,6 +12,12 @@
 		// echo $comment;
 		// echo $id;
 		// echo $imageid;
+		$imgEntry = ft_run_sql("SELECT * FROM images WHERE id='$imageid'");
+		$uploaderid = $imgEntry[0]['userid'];
+		$uploaderEntry = ft_run_sql("SELECT * FROM users WHERE id='$uploaderid'");
+		if ($uploaderEntry[0]['notify']== '1') {
+			mail($uploaderEntry[0]['email'], "Do not reply", "Your image has gotten a comment!, From: tpatter@student.wethinkcode.co.za");
+		}
 		header("location: image.php?imageid=".$imageid);
 	}
 	else {

@@ -40,7 +40,7 @@
 	} else {
 		$filePath = $target_dir . $fileName;
 		$userid = $_SESSION['id'];
-		$sql = "INSERT INTO images (imagename, filePath, sticker, merged, userid, votes) VALUES ('$fileName', '$filePath', 'none', '1', '$userid', '0');";
+		$sql = "INSERT INTO images (imagename, filePath, sticker, merged, userid, votes, voters) VALUES ('$fileName', '$filePath', 'none', '1', '$userid', '0', '');";
 		ft_run_sql_noreturn($sql);
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $filePath)) {
 			$out = "The file '". basename( $_FILES["fileToUpload"]["name"]). "' has been uploaded.";
