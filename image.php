@@ -18,13 +18,16 @@
 				"	<img src='".$imageEntries[0]['filePath']."' class='twelve columns'>".
 				"</div>";
 
-	$comments = "<div class='container'><p>No one has commented on this picture yet, be the first!</p>";
 	if (count($commentEntries) > 0) {
+		$comments = "<div class='container'>";
 		foreach ($commentEntries as $entry) {
 			$sql = "SELECT * FROM users WHERE id = '".$entry['authorid']."'";
 			$author = ft_run_sql($sql)[0];
 			$comments .= "<p>".$author['username'].": ".$entry['comment']."</p>";
 		}
+	}
+	else {
+		$comments = "<div class='container'><p>No one has commented on this picture yet, be the first!</p>";
 	}
 	$comments .= "</div>";
 
@@ -40,11 +43,17 @@
 		<?php ft_printheader(); ?><div class="twelve columns">
 
 		<div class="container">
-			<h2>Camagru</h2>
 			<?php
 				print($image);
 				print($comments);
 			?>
+			<div class="container" id="comments" >
+				<form action="comment.php" method="POST">
+					<textarea rows="4" class="twelve columns" name="comment" style="resize: none;"></textarea>
+					<input type="hidden" value=<?php echo "'$imageid'"?> name="imageid" />
+					<input type="submit" name="okay">
+				</form>
+			</div>
 		</div>
 
 		</div><?php ft_printfooter(); ?>

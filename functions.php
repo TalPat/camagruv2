@@ -15,7 +15,7 @@
 			$logstat = '<a href="login.php">Login</a></p>';
 			'</p> <a href="logout.php">Logout</a>';
 		print(
-				'<div class="header twelve columns" style="">
+				'<div class="header twelve columns" style="margin-bottom: 20px;">
 				<div>
 					<h1 style="float: left">Camagru</h1>
 				</div>

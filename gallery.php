@@ -25,8 +25,12 @@
 			$pics .= "<div  style='display: inline-block'>";
 
 		$pics .=	"<div class='piccontainer one-half column' style='border: 1px solid black; margin-bottom: 5px;'>".
-					"	<a href='image.php?imageid=".$entry['id']."'><img src='".$entry['filePath']."' style='width: 100%;'></a>".
-					"	Points: ".$entry['votes'].
+					"	<a href='image.php?imageid=".$entry['id']."'><img src='".$entry['filePath']."' style='width: 100%;'></a>";
+		if (isset($_SESSION['id']))
+			$pics .= "<img src='assets/black.png' style='float: right' class='two columns' onclick='upvote(".$entry['id'].")'>";
+
+		$pics .=	"	Points: ".$entry['votes']."<br>".
+					"	Comments: ".count(ft_run_sql("SELECT * FROM comments WHERE imageid='".$entry['id']."'")).
 					"</div>";
 		
 		if ($counter % 2 != 0)
