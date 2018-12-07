@@ -14,7 +14,7 @@
 		if ($entries != "Error" && count($entries) < 1) {
 			$refcode = hash("whirlpool",rand(0, 999999));
 			ft_run_sql_noreturn("INSERT INTO Users (username, email, passwd, firstname, lastname, confirmed, refcode, notify) VALUES ('$username', '$email', '".hash("whirlpool",$passwrd)."', '$firstname', '$lastname', '0', '$refcode', '1')");
-			if (mail($email, "Do not reply", "Thank you for registering with Camagru. Click on the link to activate your account <br>http://localhost:8080/validate.php?id=filter_var($_POST[username]&code=".$refcode.", From: tpatter@student.wethinkcode.co.za"))
+			if (mail($email, "Do not reply", "Thank you for registering with Camagru. Click on the link to activate your account <br>http://localhost:8080/validate.php?id=$username&code=".$refcode.", From: tpatter@student.wethinkcode.co.za"))
 					$out = "A verification email has been sent, click the link in the email to validate your account.";
 			else
 				$out = "Failed to send verification mail";

@@ -102,13 +102,11 @@
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				//display merged photo
-				console.log(this.responseText);
 			}
 		};
 		xhttp.open("POST", "saveimage.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("image=" + baseURIimg + "&sticker=" + sticker + "&userid=<?php echo $_SESSION['id']?>");
-		console.log("sticker=" + sticker + "&userid=<?php echo $_SESSION['id']?>");
 	}
 
 </script>

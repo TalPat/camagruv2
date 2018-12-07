@@ -19,7 +19,7 @@
 			<form action="checkLogin.php" method="POST">
 				<table>
 					<tr><td>Username: </td><td><input type="text" name="username"></td></tr>
-					<tr><td>Password: </td><td><input type="password" name="passwrd"></td></tr>
+					<tr><td>Password: </td><td><input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="passwrd"></td></tr>
 				</table>
 				<br>
 				<input type="submit" name="okay">

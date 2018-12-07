@@ -21,7 +21,7 @@
 			<h2>New Password</h2>
 			<form action="checkUpdate.php" method="POST">
 				<table>
-					<tr><td>New Password: </td><td><input type="password" name="passwrd"></td></tr>
+					<tr><td>New Password: </td><td><input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="passwrd"></td></tr>
 				</table>
 				<br>
 				<input type="hidden" value=<?php echo "'$username'"?> name="username" />
