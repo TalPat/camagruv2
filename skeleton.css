@@ -400,6 +400,26 @@ on small devices, paste the mobile query code up in the buttons section and styl
 there.
 */
 
+body {
+  margin: 0px;
+}
+
+.header {
+  padding: 5px;
+}
+
+.footer {
+  height: 10vh;
+}
+
+#maincontent {
+  position: relative;
+  min-height: 100vh;
+}
+
+.primary {
+  min-height: 85vh;
+}
 
 /* Larger than mobile */
 @media (min-width: 400px) {}

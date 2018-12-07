@@ -3,9 +3,9 @@
 	session_start();
 	require_once("functions.php");
 
-	$username = $_POST['username'];
-	$code = $_POST['code'];
-	$passwrd = $_POST['passwrd'];
+	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+	$code = filter_var($_POST['code'], FILTER_SANITIZE_STRING);
+	$passwrd = filter_var($_POST['passwrd'], FILTER_SANITIZE_STRING);
 	$passwrd = hash("whirlpool",$passwrd);
 
 	if ($passwrd != "" && isset($_POST['okay']) && $username != "" && $code != "") {
@@ -33,7 +33,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>Update Password</h2>
 			<p><?php echo($out) ?></p>
 		</div>

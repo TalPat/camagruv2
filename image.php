@@ -30,7 +30,7 @@
 		$comments = "<div class='container'><p>No one has commented on this picture yet, be the first!</p>";
 	}
 	$comments .= "</div>";
-	$commentform = 	'<div class="container" id="comments" >'.
+	$commentform = 	'<div class="container " id="comments" >'.
 					'<form action="comment.php" method="POST">'.
 					'<textarea rows="4" class="twelve columns" name="comment" style="resize: none;"></textarea>'.
 					'<input type="hidden" value="'.$imageid.'" name="imageid" />'.
@@ -49,7 +49,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<?php
 				print($image);
 				print($comments);

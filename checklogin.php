@@ -3,8 +3,8 @@
 	session_start();
 	require_once("functions.php");
 
-	$username = $_POST['username'];
-	$passwrd = $_POST['passwrd'];
+	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+	$passwrd = filter_var($_POST['passwrd'], FILTER_SANITIZE_STRING);
 	
 	
 	$out = "Incorrect username or password";
@@ -28,7 +28,7 @@
 			if (hash("whirlpool", $passwrd) != $entries[0]['passwd'])
 				$out = "Invalid password";
 			else {
-				$_SESSION['user'] = $_POST['username'];
+				$_SESSION['user'] = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 				$_SESSION['id'] = $entries[0]['id'];
 				header("location: user.php");
 			}
@@ -49,7 +49,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>Unable to Log In</h2>
 			<p><?php echo($out) ?></p>
 		</div>

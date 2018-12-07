@@ -67,7 +67,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2><?php print($_SESSION[user]) ?>'s Profile</h2>
 			<a href="photo.php">Take Photo</a><br>
 			<a href="upload.php">Upload a Picture</a>

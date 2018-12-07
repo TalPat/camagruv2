@@ -2,9 +2,9 @@
     require_once('merge.php');
 	require_once("functions.php");
 
-    $rawData = $_POST['image'];
-    $sticker = $_POST['sticker'];
-    $userid = $_POST['userid'];
+    $rawData = filter_var($_POST['image'], FILTER_SANITIZE_STRING);
+    $sticker = filter_var($_POST['sticker'], FILTER_SANITIZE_STRING);
+    $userid = filter_var($_POST['userid'], FILTER_SANITIZE_STRING);
 
     echo "test";
     $target_dir = "uploads/".$userid."/";

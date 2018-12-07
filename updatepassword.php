@@ -17,7 +17,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>New Password</h2>
 			<form action="checkUpdate.php" method="POST">
 				<table>

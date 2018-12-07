@@ -14,7 +14,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>Register</h2>
 			<form action="checkRegister.php" method="POST">
 				<table>

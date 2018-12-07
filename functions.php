@@ -15,7 +15,7 @@
 			$logstat = '<a href="login.php">Login</a></p>';
 			'</p> <a href="logout.php">Logout</a>';
 		print(
-				'<div class="header twelve columns" style="margin-bottom: 20px;">
+				'<div class="header twelve columns" style="margin: 0px; margin-bottom: 20px; background-color: #dddddd">
 				<div>
 					<h1 style="float: left">Camagru</h1>
 				</div>
@@ -33,8 +33,9 @@
 	function	ft_printfooter()
 	{
 		print(
-			'<div class="footer">
-				</div>'
+			'<div class="footer twelve columns" style="background-color: #dddddd; width: 100%; position: relative; bottom: 0; text-align: center;">'.
+			'<p style="margin-top: 10px;">TPATTER Camagru</p>'.
+			'</div>'
 		);
 	}
 

@@ -3,9 +3,9 @@
 	session_start();
 	require_once("functions.php");
 
-	$comment = $_POST['comment'];
+	$comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
 	$id = $_SESSION['id'];
-	$imageid = $_POST['imageid'];
+	$imageid = filter_var($_POST['imageid'], FILTER_SANITIZE_STRING);
 
 	if ($comment != "" && isset($_POST['okay']) && $id != "") {
 		ft_run_sql_noreturn("INSERT INTO comments (comment, authorid, imageid) VALUES ('$comment', '$id', '$imageid')");

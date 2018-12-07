@@ -65,7 +65,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>Camagru</h2>
 			<?php
 				print($pics);

@@ -16,7 +16,7 @@
 
 		<?php ft_printheader(); ?><div class="twelve columns">
 
-		<div class="container">
+		<div class="container primary">
 			<h2>Upload an Image</h2>
 			<form action="uploadAction.php" method="post" enctype="multipart/form-data">
 				Select image to upload:<br>
